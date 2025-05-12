@@ -20,7 +20,7 @@ app.post('/create',(req,res)=>{
         if(!password){
             res.status(400).json({message:"password cannot be empty"})
         }
-        if(!password>8 && !password<=16){
+        if(password.length<8 || password.length>=16){
             res.status(400).json({message:"password length should be greater than 8 or less than or equal to 16"})
         }
         res.status(201).json({message:"user created successfully",username,email,password,dateOfBirth})
